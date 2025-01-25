@@ -1,6 +1,7 @@
 provider "aws" {
   region = "eu-west-2" # London region
 }
-resource "aws_s3_bucket" "terraform-nov-project23" {
-  bucket = "terraform-nov-project23"
+resource "aws_s3_bucket" "DevSecOps Project" {
+  bucket = "DevSecOps Project"
   }
+  
