@@ -25,8 +25,8 @@ jobs:
               uses: aquasecurity/trivy-action@master
               with:
                 scan-type: 'fs'
-                scanners: ‘misconfig’
-                scan-ref: ‘.’
+                scanners: 'misconfig'
+                scan-ref: '.'
                 hide-progress: false
-                format: ‘table’
+                format: 'table'
                 ignore-unfixed: true
