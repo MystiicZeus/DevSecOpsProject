@@ -11,3 +11,4 @@ resource "aws_s3_bucket" "dan-n-devsecops-project" {
       region = "eu-west-2"
     }
   }
+  
