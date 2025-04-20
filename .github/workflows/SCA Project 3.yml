@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+      permissions:
+  contents: read
+  security-events: write
+
 jobs:
   deploy-and-scan:
     name: Pull Docker Image and SCA Scan
