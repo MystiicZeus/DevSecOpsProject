@@ -1,5 +1,8 @@
 name: SCA Scan Project 3
 on:
+   permissions:
+  contents: read
+  security-events: write 
   push:
     branches:
       - main
