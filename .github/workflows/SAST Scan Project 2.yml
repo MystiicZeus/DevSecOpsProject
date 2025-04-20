@@ -15,19 +15,22 @@ jobs:
     name: SAST Scan
     runs-on: ubuntu-latest
 
+    # ✅ Avoid running on forks (prevents token errors)
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install dependencies  
+      - name: Install Python
         uses: actions/setup-python@v3
         with:
           python-version: 3.x
-          
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: python  # Add your project's language(s) here
+          languages: python  # 🔁 Change this if your project uses a different language
 
       - name: Run CodeQL Analysis
         uses: github/codeql-action/analyze@v3
