@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+  security-events: write
+
 jobs:
   sast:
     name: SAST Scan
@@ -22,6 +26,8 @@ jobs:
           
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
+        with:
+          languages: python  # Add your project's language(s) here
 
       - name: Run CodeQL Analysis
         uses: github/codeql-action/analyze@v3
