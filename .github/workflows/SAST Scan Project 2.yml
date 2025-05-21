@@ -1,4 +1,4 @@
-name: SAST Scan Project 2
+name: SAST Scan Project 3
 
 on:
   push:
@@ -6,31 +6,22 @@ on:
   pull_request:
     branches: [ main ]
 
-permissions:
-  contents: read
-  security-events: write
-
 jobs:
   sast:
     name: SAST Scan
     runs-on: ubuntu-latest
 
-    # ✅ Avoid running on forks (prevents token errors)
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install Python
+      - name: Install dependencies  
         uses: actions/setup-python@v3
         with:
           python-version: 3.x
-
+          
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
-        with:
-          languages: python  # 🔁 Change this if your project uses a different language
 
       - name: Run CodeQL Analysis
         uses: github/codeql-action/analyze@v3
